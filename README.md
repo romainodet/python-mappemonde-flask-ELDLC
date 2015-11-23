@@ -2,7 +2,7 @@ Ce projet contient de quoi vous permettre de démarrer la mise en place du site 
 
 Le projet permet de visualiser la base de données d'un magasin de disque.
 La base de données a été récupéré sur ce site :
-
+https://chinookdatabase.codeplex.com/
 
 Voici le role de chacun des fichiers :
 
@@ -11,5 +11,3 @@ Voici le role de chacun des fichiers :
  - webserver.py : un script Python permettant de lancer un serveur web local sur votre machine
  - templates/ : les fichiers template HTML pour générer les pages
  - static/ : l'ensemble des ressources statiques (feuilles de style, fichier javascript)
-
- 
