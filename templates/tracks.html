@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block body %}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h2 class="sub-header">Tracks</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Album</th>
+                  <th>Title</th>
+                  <th>Artist</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for t in tracks %}
+                <tr>
+                  <td>{{ t[0] }}</td>
+                  <td>{{ t[2] }}</td>
+                  <td>{{ t[1] }}</td>
+                  <td>{{ t[3] }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+{% endblock %}
