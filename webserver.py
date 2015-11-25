@@ -52,4 +52,6 @@ def albums():
 
 # main application
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=True)
+    #under windows, there is a bug in a module which prevents the usage of debug=True
+    #the bug should be fixed within days or weeks, but in the meantime do not enable debug
+    app.run(host='0.0.0.0',debug=False)
