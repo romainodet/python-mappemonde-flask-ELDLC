@@ -30,7 +30,7 @@ class Model:
     #Get the content of the Album table
     def getAlbumsSimple(self):
         return self.sqlQuery("""
-                            SELECT * FROM [Track]
+                            SELECT * FROM [Album]
                              """)
 
     #Get the content of the Artsit Table and count number of album for each artist
