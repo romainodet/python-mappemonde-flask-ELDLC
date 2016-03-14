@@ -7,7 +7,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-#Show artists
+# Show artists
 @app.route('/artists_simple.html')
 def artists_simple():
     with Model() as model:
@@ -20,7 +20,7 @@ def artists():
       artists=model.getArtists()
       return render_template('artists.html', artists=artists)
 
-#Show tracks
+# Show tracks
 @app.route('/tracks_simple.html')
 def tracks_simple():
     with Model() as model:
@@ -34,7 +34,7 @@ def tracks():
       return render_template('tracks.html', tracks=tracks)
 
 
-#Show albums
+# Show albums
 @app.route('/albums_simple.html')
 def albums_simple():
     with Model() as model:
@@ -54,4 +54,4 @@ def albums():
 if __name__ == '__main__':
     #under windows, there is a bug in a module which prevents the usage of debug=True
     #the bug should be fixed within days or weeks, but in the meantime do not enable debug
-    app.run(host='0.0.0.0',debug=False)
+    app.run(host='0.0.0.0',debug=True)
