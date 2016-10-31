@@ -6,8 +6,8 @@ https://chinookdatabase.codeplex.com/
 
 Voici le role de chacun des fichiers :
 
- - example.sqlite : la base de données sqlite (que vous pouvez visualiser avec sqlitebrowser)
- - model.py : un script Python permettant de faire des requêtes SQL dans la base de données
+ - example.sqlite : la base de données sqlite (que vous pouvez visualiser avec PyCharm)
+ - model.py : un script Python qui contient les requêtes SQL vers la base de données
  - webserver.py : un script Python permettant de lancer un serveur web local sur votre machine
  - templates/ : les fichiers template HTML pour générer les pages
  - static/ : l'ensemble des ressources statiques (feuilles de style, fichier javascript)
@@ -16,18 +16,10 @@ Infos et liens utiles :
 
 Installation de Flask pour Python
  - Ouvrez un terminal windows (Menu Démarrer, Exécuter, "cmd")
- - Naviguez dans c:\Python34\Scripts
+ - Naviguez dans c:\Python34\Scripts (ou vers le dossier ou vous avez installé Python)
  - Taper "pip.exe --proxy=http://10.100.100.242:80 install flask"
 
-Utiliser Atom pour écrire le code et lancer le serveur web
- - Configurer le proxy dans atom : Créer un fichier nommer .apmrc dans C:\Users\[votre login] avec le contenu suivant
-https-proxy=http://10.100.100.242:80
-http-proxy=http://10.100.100.242:80
-strict-ssl=false
-
- - Redémarrer Atom et ouvrez les paramètres (File->Settings)
- - Dans "Install", trouver et installer le package "atom-runner"
- - Relancer Atom et vous devriez pouvoir exécuter votre script python dans Atom avec "Alt+R"
+Utiliser PyCharm pour écrire le code et lancer le serveur web
 
 Templates Jinja
 https://realpython.com/blog/python/primer-on-jinja-templating/
