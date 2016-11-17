@@ -1,10 +1,12 @@
 import sqlite3
+
 import sys
 
 class Model:
     # Constructor, connect to database
     def __init__(self):
         self.con = sqlite3.connect('example.sqlite');
+        self.con.row_factory = sqlite3.Row
         self.cur = self.con.cursor()
 
     def __enter__(self):
@@ -18,26 +20,26 @@ class Model:
     # Get the content of the Artist table
     def getArtistsSimple(self):
         return self.sqlQuery("""
-                            SELECT * FROM [Artist]
+                            SELECT * FROM Artist
                             """)
 
     # Get the content of the Tracks table
     def getTracksSimple(self):
         return self.sqlQuery("""
-                            SELECT * FROM [Track]
+                            SELECT * FROM Track
                              """)
 
     # Get the content of the Album table
     def getAlbumsSimple(self):
         return self.sqlQuery("""
-                            SELECT * FROM [Album]
+                            SELECT * FROM Album
                              """)
 
     # Get the content of the Artsit Table and count number of album for each artist
     def getArtists(self):
         return self.sqlQuery("""
-                            SELECT ar.ArtistId,ar.Name, COUNT(al.ArtistId)
-                            FROM [Artist] as ar, [Album] as al
+                            SELECT ar.Name as name, COUNT(al.ArtistId) as cpt_album
+                            FROM Artist as ar, Album as al
                             WHERE ar.ArtistId = al.ArtistId
                             GROUP BY al.ArtistId
                             ORDER BY ar.Name ASC
@@ -46,11 +48,12 @@ class Model:
     # Display track information
     def getTracks(self):
         return self.sqlQuery("""
-                            SELECT t.TrackId as num,t.Name as track_name,al.Title as album_title,ar.Name as artist
+                            SELECT t.Name as track_name,al.Title as album_title,ar.Name as artist, ge.Name as genre
                             FROM
-                            [Track] as t
-                            LEFT JOIN [Album] as al ON t.AlbumId=al.AlbumId
-                            LEFT JOIN [Artist] as ar ON al.ArtistId=ar.ArtistId
+                            Track as t
+                            LEFT JOIN Album as al ON t.AlbumId=al.AlbumId
+                            LEFT JOIN Artist as ar ON al.ArtistId=ar.ArtistId
+                            LEFT JOIN Genre as ge ON t.GenreId=ge.GenreId
                             ORDER BY al.Title ASC
                              """)
 
@@ -59,8 +62,8 @@ class Model:
         return self.sqlQuery("""
                             SELECT al.AlbumId as num,al.Title as album_name,ar.Name as artist
                             FROM
-                            [Album] as al
-                            LEFT JOIN [Artist] as ar ON al.ArtistId=ar.ArtistId
+                            Album as al
+                            LEFT JOIN Artist as ar ON al.ArtistId=ar.ArtistId
                             ORDER BY ar.Name ASC
                              """)
 

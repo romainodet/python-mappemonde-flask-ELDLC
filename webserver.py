@@ -5,6 +5,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    app.logger.info('This is an information message')
+    app.logger.warning('hum, something is not right')
+    app.logger.error('Oops, that must be a bug')
     return render_template('index.html')
 
 # Show artists

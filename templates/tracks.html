@@ -6,19 +6,19 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
                   <th>Album</th>
                   <th>Title</th>
                   <th>Artist</th>
+                  <th>Genre</th>
                 </tr>
               </thead>
               <tbody>
                 {% for t in tracks %}
                 <tr>
-                  <td>{{ t[0] }}</td>
-                  <td>{{ t[2] }}</td>
-                  <td>{{ t[1] }}</td>
-                  <td>{{ t[3] }}</td>
+                  <td><span title="{{ t["album_title"] }}">{{ t["album_title"] | truncate(30)}}</span></td>
+                  <td><span title="{{ t["track_name"] }}">{{ t["track_name"] | truncate(30)}}</span></td>
+                  <td><span title="{{ t["artist"] }}">{{ t["artist"] | upper | truncate(25) }}</span> </td>
+                  <td>{{ t["genre"]  }}</td>
                 </tr>
                 {% endfor %}
               </tbody>

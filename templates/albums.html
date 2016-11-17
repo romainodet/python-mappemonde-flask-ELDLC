@@ -6,7 +6,6 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
                   <th>Title</th>
                   <th>Artist</th>
                 </tr>
@@ -14,9 +13,8 @@
               <tbody>
                 {% for a in albums %}
                 <tr>
-                  <td>{{ a[0] }}</td>
-                  <td>{{ a[1] }}</td>
-                  <td>{{ a[2] }}</td>
+                  <td>{{ a["album_name"] }}</td>
+                  <td>{{ a["artist"] }}</td>
                 </tr>
                 {% endfor %}
               </tbody>

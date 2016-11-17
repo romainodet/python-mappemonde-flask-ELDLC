@@ -6,17 +6,15 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
                   <th>Name</th>
-                  <th>Number of albums</th>
+                  <th># albums</th>
                 </tr>
               </thead>
               <tbody>
                 {% for a in artists %}
                 <tr>
-                  <td>{{ a[0] }}</td>
-                  <td>{{ a[1] }}</td>
-                  <td>{{ a[2] }}</td>
+                  <td>{{ a["name"] }}</td>
+                  <td>{{ a["cpt_album"] }}</td>
                 </tr>
                 {% endfor %}
               </tbody>
