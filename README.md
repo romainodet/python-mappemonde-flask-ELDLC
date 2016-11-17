@@ -15,13 +15,13 @@ La base de données a été récupéré sur ce site, avant d'etre simplifiée :
  - templates/ : les fichiers template HTML pour générer les pages de votre site
  - static/ : l'ensemble des ressources statiques (feuilles de style, fichiers javascript)
 
-## Installation de Flask pour Python
+## Installation de Flask pour Python
 
  - Dans PyCharm, ouvrez le préférences (Settings) et rechercher "inter", vous devez voir votre interpréteur Python
  - Cliquer sur le "+" pour installer un nouveau module, et rechercher le module "flask"
  - Installer le module, et vous pouvez maintenant lancer le fichier "webserver.py"
 
-## liens utiles
+## liens utiles
 
  * [Templates Jinja officiel](http://jinja.pocoo.org/)
  * [Templates Jinja tuto](https://realpython.com/blog/python/primer-on-jinja-templating/)
