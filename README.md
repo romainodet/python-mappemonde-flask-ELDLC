@@ -1,41 +1,32 @@
+## Présentation du projet
+
 Ce projet contient de quoi vous permettre de démarrer la mise en place du site web pour votre projet.
 
 Le projet permet de visualiser la base de données d'un magasin de disque.
-La base de données a été récupéré sur ce site :
-https://chinookdatabase.codeplex.com/
+La base de données a été récupéré sur ce site, avant d'etre simplifiée : 
+[Chinook Record Store](https://chinookdatabase.codeplex.com/)
 
-Voici le role de chacun des fichiers :
+## Roles des fichiers
 
  - example.sqlite : la base de données sqlite (que vous pouvez visualiser avec PyCharm)
- - model.py : un script Python qui contient les requêtes SQL vers la base de données
- - webserver.py : un script Python permettant de lancer un serveur web local sur votre machine
- - templates/ : les fichiers template HTML pour générer les pages
- - static/ : l'ensemble des ressources statiques (feuilles de style, fichier javascript)
+ - model.py : un script Python qui contient toutes les requêtes SQL vers la base de données
+ - webserver.py : un script Python permettant de lancer un serveur web local sur votre machine, 
+ c'est ce fichier qu'il faut exécuter pour lancer votre projet.
+ - templates/ : les fichiers template HTML pour générer les pages de votre site
+ - static/ : l'ensemble des ressources statiques (feuilles de style, fichiers javascript)
 
-Infos et liens utiles :
+## Installation de Flask pour Python
 
-Installation de Flask pour Python
- - Ouvrez un terminal windows (Menu Démarrer, Exécuter, "cmd")
- - Naviguez dans c:\Python34\Scripts (ou vers le dossier ou vous avez installé Python)
- - Taper "pip.exe --proxy=http://10.100.100.242:80 install flask"
+ - Dans PyCharm, ouvrez le préférences (Settings) et rechercher "inter", vous devez voir votre interpréteur Python
+ - Cliquer sur le "+" pour installer un nouveau module, et rechercher le module "flask"
+ - Installer le module, et vous pouvez maintenant lancer le fichier "webserver.py"
 
-Utiliser PyCharm pour écrire le code et lancer le serveur web
+## liens utiles
 
-Templates Jinja
-https://realpython.com/blog/python/primer-on-jinja-templating/
-http://jinja.pocoo.org/
-
-Serveur web Flask
-http://flask.pocoo.org/
-
-SQLite et SQL
-https://www.sqlite.org/
-http://sql.sh/
-
-Bootstrap
-http://getbootstrap.com/examples/dashboard/
-http://getbootstrap.com/
-
-Manager pour BD SQLite
-http://sqlitebrowser.org/
-https://www.mysql.fr/products/workbench/
+ * [Templates Jinja officiel](http://jinja.pocoo.org/)
+ * [Templates Jinja tuto](https://realpython.com/blog/python/primer-on-jinja-templating/)
+ * [Flask](http://flask.pocoo.org/)
+ * [SQLite](https://www.sqlite.org/)
+ * [SQL](http://sql.sh/)
+ * [Bootstrap](http://getbootstrap.com/)
+ * [Manager pour BD SQLite](http://sqlitebrowser.org/)
