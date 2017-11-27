@@ -13,7 +13,7 @@ class Model:
     def __enter__(self):
         return self
 
-    # Desctructor, disconnect from database
+    # Destructor, disconnect from database
     def __exit__(self, type, value, traceback):
         if (self.con):
             self.con.close()
