@@ -21,9 +21,8 @@ def index():
 def artists_simple():
     # This is needed to use the query defined in the model.py module
     with Model() as model:
-        # Get the artists as a list of dictionnaries
+        # Get the artists as a list of dictionaries
         artists = model.getArtistsSimple()
-        print(artists)
         return render_template('artists_simple.html', artists=artists)
 
 
