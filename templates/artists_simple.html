@@ -14,7 +14,7 @@
         {% for a in artists %}
         <tr>
           <td>{{ a["ArtistId"] }}</td>
-          <td>{{ a[1] }}</td>
+            <td><a href="{{ url_for('artist',id=a["ArtistId"]) }}">{{ a[1] }}</a></td>
         </tr>
         {% endfor %}
       </tbody>

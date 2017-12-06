@@ -24,6 +24,19 @@ class Model:
                             SELECT * FROM Artist
                             """)
 
+    def getArtist(self, id):
+        return self.sqlQuery("""
+                            SELECT * FROM Artist
+                            WHERE ArtistId='%s'
+                            """ % (id))
+
+    def getAlbumsOfArtist(self, id):
+        return self.sqlQuery("""
+          SELECT * FROM Album
+          WHERE ArtistId='%s'
+        """ % (id))
+
+
     # Get the content of the Tracks table
     def getTracksSimple(self):
         return self.sqlQuery("""

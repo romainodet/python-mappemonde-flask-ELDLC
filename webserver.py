@@ -25,6 +25,21 @@ def artists_simple():
         artists = model.getArtistsSimple()
         return render_template('artists_simple.html', artists=artists)
 
+# Show single artist
+@app.route('/artist/<id>')
+def artist(id):
+    # This is needed to use the query defined in the model.py module
+    with Model() as model:
+        # Get the artists as a list of dictionaries
+        artist = model.getArtist(id)
+        albums = model.getAlbumsOfArtist(id)
+        if len(artist) == 0:
+            return "404, Not found", 404
+
+        return render_template('artist_one.html', artist=artist[0]["name"],
+                               albums=albums)
+
+
 
 # Show artists (more complex case)
 @app.route('/artists.html')
