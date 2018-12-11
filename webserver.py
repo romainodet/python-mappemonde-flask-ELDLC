@@ -22,8 +22,8 @@ def info_country():
     # This is needed to use the query defined in the model.py module
     with Model() as model:
         # Get the artists as a list of dictionaries
-        countrys = model.getInfoCountry()
-        return render_template('info_country.html', countrys=countrys)
+        countries = model.getInfoCountry()
+        return render_template('info_country.html', countries=countries)
 
 # Show single artist
 @app.route('/onlyCountry/<id>')

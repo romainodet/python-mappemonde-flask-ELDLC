@@ -1,22 +1,12 @@
 {% extends "layout.html" %}
 {% block body %}
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <h2 class="sub-header">{{ pays }}</h2>
-        <ul>
-            {% for information in info %}
-                <li>{{ information["pays"] }}</li>
-                <li>{{ information["devise"] }}</li>
-                <li>{{ information["pib"] }}</li>
-            {% endfor %}
-            {%  for money in monnaie %}
-                <li>{{ money["monnaie"] }}</li>
-                <li>{{ money["monnaie_iso"] }}</li>
-            {% endfor %}
-        </ul>
-
         <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">{% for information in info %}{{ information["pays"] }}</h5>
+            <div class="card-body">{% for information in info %}
+                <img class="card-img-top"
+                     src="http://www.geognos.com/api/en/countries/flag/{{ information["iso"] }}.png"
+                     alt="Card image cap">
+                <h5 class="card-title">{{ information["pays"] }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{ information["devise"] }}</h6>
                     <p class="card-text">PIB : {{ information["pib"] }}{% endfor %}{% for money in monnaie %}<br>Nom de
                     la monnaie : {{ money["monnaie"] }}<br>Code iso de la monnaie : {{ money["monnaie_iso"] }}

@@ -1,24 +1,22 @@
 {% extends "layout.html" %}
 {% block body %}
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-  <h2 class="sub-header">Countrys informations</h2>
+    <h2 class="sub-header">Countries informations</h2>
   <div class="table-responsive">
     <table class="table table-striped">
       <thead>
         <tr>
           <th>ID</th>
+            <th>Flag</th>
           <th>Name</th>
-          <th>Devise</th>
-          <th>PIB</th>
         </tr>
       </thead>
       <tbody>
-        {% for a in countrys %}
+      {% for a in countries %}
         <tr>
-          <td>{{ a["id"] }}</td>
+            <td>{{ a["id"] }}</td>
+            <td><img src="http://www.geognos.com/api/en/countries/flag/{{ a["iso"] }}.png" height="10px"></td>
             <td><a target="_blank" href="{{ url_for('onlyCountry',id=a["id"]) }}">{{ a["name"] }}</a></td>
-            <td> {{ a["motto"] }}</td>
-            <td> {{ a["pib"] }}</td>
         </tr>
         {% endfor %}
       </tbody>

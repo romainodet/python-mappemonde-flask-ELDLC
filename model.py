@@ -33,7 +33,7 @@ class Model:
 
     def getInfoOnlyCountry(self, id):
         return self.sqlQuery("""
-                            select country.id , country.name as `pays`, country.motto 
+                            select country.iso, country.id , country.name as `pays`, country.motto 
       as `devise`,country.pib as `pib` from country WHERE country.id = '%s' 
     
                             """% (id))
