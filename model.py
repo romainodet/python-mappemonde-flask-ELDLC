@@ -6,7 +6,7 @@ class Model:
     # Constructor, connect to database
     def __init__(self):
         os.chdir(os.path.dirname(os.path.realpath(__file__)))
-        self.con = sqlite3.connect('mapmonde')
+        self.con = sqlite3.connect('mapmonde.sqlite')
         self.con.row_factory = sqlite3.Row
         self.cur = self.con.cursor()
 
@@ -19,20 +19,24 @@ class Model:
             self.con.close()
 
     # Get the content of the Artist table
-    def getArtistsSimple(self):
+    def getInfoCountry(self):
         return self.sqlQuery("""
                             SELECT * FROM country
                             """)
 
-    def getArtist(self, id):
+    def getMonnaie(self, id):
         return self.sqlQuery("""
-                            SELECT * FROM country
+                           select country.id ,currency.Monnaie as `monnaie`, currency.CodeISO 
+                           as `monnaie_iso` , currency.id  
+                           from country, currency WHERE country.currency_id = currency.id AND country.id = '%s'
                             """ % (id))
 
-    def getAlbumsOfArtist(self, id):
+    def getInfoOnlyCountry(self, id):
         return self.sqlQuery("""
-          SELECT * FROM country
-        """ % (id))
+                            select country.id , country.name as `pays`, country.motto 
+      as `devise`,country.pib as `pib` from country WHERE country.id = '%s' 
+    
+                            """% (id))
 
 
     # Get the content of the Tracks table

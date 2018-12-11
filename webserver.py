@@ -17,27 +17,23 @@ def index():
 
 
 # Show artists (simple case)
-@app.route('/artists_simple.html')
-def artists_simple():
+@app.route('/info_country.html')
+def info_country():
     # This is needed to use the query defined in the model.py module
     with Model() as model:
         # Get the artists as a list of dictionaries
-        artists = model.getArtistsSimple()
-        return render_template('artists_simple.html', artists=artists)
+        countrys = model.getInfoCountry()
+        return render_template('info_country.html', countrys=countrys)
 
 # Show single artist
-@app.route('/artist/<id>')
-def artist(id):
+@app.route('/onlyCountry/<id>')
+def onlyCountry(id):
     # This is needed to use the query defined in the model.py module
     with Model() as model:
         # Get the artists as a list of dictionaries
-        artist = model.getArtist(id)
-        albums = model.getAlbumsOfArtist(id)
-        if len(artist) == 0:
-            return "404, Not found", 404
-
-        return render_template('artist_one.html', artist=artist[0]["name"],
-                               albums=albums)
+        info = model.getInfoOnlyCountry(id)
+        monnaie = model.getMonnaie(id)
+        return render_template('country_one.html', info=info , monnaie=monnaie)
 
 
 
