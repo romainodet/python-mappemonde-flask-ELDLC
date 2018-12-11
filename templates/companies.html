@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h2 class="sub-header">Companies informations</h2>
+        <div class="table-responsive">
+
+            <table class="table table-striped">
+                <tr>
+                    <th></th>
+                    <th>CA</th>
+                    <th>Activité</th>
+                    <th>Pays</th>
+                </tr>
+                {% for a in companies %}
+                    <tr>
+                        <td>{{ a["company"] }}</td>
+                        <td>{{ a["CA"] }}</td>
+                        <td>{{ a["domaine"] }}</td>
+                        <td>{{ a["pays"] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}

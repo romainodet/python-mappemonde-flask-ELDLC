@@ -30,7 +30,8 @@
   <body>
 
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="{{ url_for('index') }}">Navbar</a>
+      <a class="navbar-brand" href="{{ url_for('index') }}"><img
+              src="http://www.geognos.com/api/en/countries/flag/FR.png"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
               aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -43,6 +44,9 @@
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="/info_country.html">Information sur un pays</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/companies.html">3 plus grosses entreprises par pays</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link disabled" href="#">Disabled</a>

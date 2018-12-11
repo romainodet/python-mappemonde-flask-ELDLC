@@ -38,36 +38,15 @@ class Model:
     
                             """% (id))
 
-
-    # Get the content of the Tracks table
-    def getTracksSimple(self):
+    def getCompanies(self):
         return self.sqlQuery("""
-                            SELECT * FROM country
-                             """)
+        
+        select company.name as `company`, company.turnover as `CA`, country.name as `pays`, activity.activity_name as `domaine`
+        from company, country, company_country, activity
+        where company.activity_id = activity.id and country.id = company_country.country_id and company.id = company_country.company_id
+        order by country.name asc
+        """)
 
-    # Get the content of the Album table
-    def getAlbumsSimple(self):
-        return self.sqlQuery("""
-                            SELECT * FROM country
-                             """)
-
-    # Get the content of the Artsit Table and count number of album for each artist
-    def getArtists(self):
-        return self.sqlQuery("""
-                           
-                            """)
-
-    # Display track information
-    def getTracks(self):
-        return self.sqlQuery("""
-                           
-                             """)
-
-    # Display album information
-    def getAlbums(self):
-        return self.sqlQuery("""
-                           
-                             """)
 
     # Execute an SQL query and returns the result
     def sqlQuery(self, q):

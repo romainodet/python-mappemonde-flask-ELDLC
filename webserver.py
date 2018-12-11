@@ -10,9 +10,7 @@ app = Flask(__name__)
 @app.route('/')  # / is the URL
 def index():
     # These log messages are just to show you how you can use them to debug your application
-    app.logger.info('This is an information message')
-    app.logger.warning('hum, something is not right')
-    app.logger.error('Oops, that must be a bug')
+
     return render_template('index.html')
 
 
@@ -36,45 +34,15 @@ def onlyCountry(id):
         return render_template('country_one.html', info=info , monnaie=monnaie)
 
 
-
-# Show artists (more complex case)
-@app.route('/artists.html')
-def artists():
+# Show artists (simple case)
+@app.route('/companies.html')
+def info_companies():
+    # This is needed to use the query defined in the model.py module
     with Model() as model:
-        artists = model.getArtists()
-        return render_template('artists.html', artists=artists)
+        # Get the artists as a list of dictionaries
+        companies = model.getCompanies()
+        return render_template('companies.html', companies=companies)
 
-
-# Show tracks (simple case)
-@app.route('/tracks_simple.html')
-def tracks_simple():
-    with Model() as model:
-        tracks = model.getTracksSimple()
-        return render_template('tracks_simple.html', tracks=tracks)
-
-
-# Show tracks (more complex case)
-@app.route('/tracks.html')
-def tracks():
-    with Model() as model:
-        tracks = model.getTracks()
-        return render_template('tracks.html', tracks=tracks)
-
-
-# Show albums (simple case)
-@app.route('/albums_simple.html')
-def albums_simple():
-    with Model() as model:
-        albums = model.getAlbumsSimple()
-        return render_template('albums_simple.html', albums=albums)
-
-
-# Show albums (more complex case)
-@app.route('/albums.html')
-def albums():
-    with Model() as model:
-        albums = model.getAlbums()
-        return render_template('albums.html', albums=albums)
 
 
 # new routes should be defined here
