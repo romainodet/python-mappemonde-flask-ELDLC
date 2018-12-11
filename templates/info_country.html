@@ -15,7 +15,7 @@
       {% for a in countries %}
         <tr>
             <td>{{ a["id"] }}</td>
-            <td><img src="http://www.geognos.com/api/en/countries/flag/{{ a["iso"] }}.png" height="10px"></td>
+            <td><img src="https://www.geonames.org/flags/x/{{ a["iso"].lower() }}.gif" height="10px"></td>
             <td><a href="{{ url_for('onlyCountry',id=a["id"]) }}">{{ a["name"] }}</a></td>
         </tr>
         {% endfor %}

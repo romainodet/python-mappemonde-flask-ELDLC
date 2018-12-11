@@ -8,7 +8,7 @@ app = Flask(__name__)
 # Define all routes (URL)
 
 @app.route('/')  # / is the URL
-@app.route('/index.html/')  # / is the URL
+@app.route('/index.html')  # / is the URL
 @app.route('/accueil/')  # / is the URL
 def index():
     # These log messages are just to show you how you can use them to debug your application

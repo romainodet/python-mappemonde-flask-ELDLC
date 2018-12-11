@@ -14,7 +14,7 @@
             {% for a in cancer %}
                 <tr>
                     <td>{{ a["pays"] }}</td>
-                    <td><img src="http://www.geognos.com/api/en/countries/flag/{{ a["iso"] }}.png" height="10px"></td>
+                    <td><img src="https://www.geonames.org/flags/x/{{ a["iso"].lower() }}.gif" height="10px"></td>
                     <td>{{ a["nbr_cancer"] }}</td>
                     <td>{{ a["stat_year"] }}</td>
                 </tr>

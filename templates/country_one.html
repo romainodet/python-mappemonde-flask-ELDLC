@@ -4,7 +4,7 @@
         <div class="card" style="width: 18rem;">
             <div class="card-body">{% for information in info %}
                 <img class="card-img-top"
-                     src="http://www.geognos.com/api/en/countries/flag/{{ information["iso"] }}.png"
+                     src="https://www.geonames.org/flags/x/{{ information["iso"].lower() }}.gif"
                      alt="Card image cap">
                 <h5 class="card-title">{{ information["pays"] }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{ information["devise"] }}</h6>
@@ -12,7 +12,7 @@
                 Nom de
                     la monnaie : {{ money["monnaie"] }}<br>Code iso de la monnaie : {{ money["monnaie_iso"] }}
                     </p>{% endfor %}
-                <a href="/info_country.html" class="card-link">Voir d'autres pays...</a>
+                <a href="/info_country/" class="card-link">Voir d'autres pays...</a>
                 <a href="{{ url_for('index') }}" class="card-link">Accueil</a>
             </div>
         </div>
