@@ -6,7 +6,7 @@ class Model:
     # Constructor, connect to database
     def __init__(self):
         os.chdir(os.path.dirname(os.path.realpath(__file__)))
-        self.con = sqlite3.connect('example.sqlite')
+        self.con = sqlite3.connect('mapmonde.sqlite')
         self.con.row_factory = sqlite3.Row
         self.cur = self.con.cursor()
 
