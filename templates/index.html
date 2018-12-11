@@ -1,7 +1,10 @@
 {% extends "layout.html" %}
 {% block body %}
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Index page</h1>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">Index page hello</h1>
         <p>This is the index page !</p>
-        </div>
+        {% for i in range (6): %}
+            <h4>JOLI! {{ i }}</h4>
+        {% endfor %}
+    </div>
 {% endblock %}
