@@ -8,6 +8,8 @@ app = Flask(__name__)
 # Define all routes (URL)
 
 @app.route('/')  # / is the URL
+@app.route('/index.html/')  # / is the URL
+@app.route('/accueil/')  # / is the URL
 def index():
     # These log messages are just to show you how you can use them to debug your application
 
@@ -15,7 +17,7 @@ def index():
 
 
 # Show artists (simple case)
-@app.route('/info_country.html')
+@app.route('/info_country/')
 def info_country():
     # This is needed to use the query defined in the model.py module
     with Model() as model:
@@ -24,7 +26,7 @@ def info_country():
         return render_template('info_country.html', countries=countries)
 
 # Show single artist
-@app.route('/onlyCountry/<id>')
+@app.route('/onlyCountry/<id>/')
 def onlyCountry(id):
     # This is needed to use the query defined in the model.py module
     with Model() as model:
@@ -35,7 +37,7 @@ def onlyCountry(id):
 
 
 # Show artists (simple case)
-@app.route('/companies.html')
+@app.route('/companies/')
 def info_companies():
     # This is needed to use the query defined in the model.py module
     with Model() as model:
@@ -43,6 +45,15 @@ def info_companies():
         companies = model.getCompanies()
         return render_template('companies.html', companies=companies)
 
+
+# Show artists (simple case)
+@app.route('/cancer/')
+def info_cancer():
+    # This is needed to use the query defined in the model.py module
+    with Model() as model:
+        # Get the artists as a list of dictionaries
+        cancer = model.getCancer()
+        return render_template('cancer.html', cancer=cancer)
 
 
 # new routes should be defined here

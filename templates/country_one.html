@@ -8,7 +8,8 @@
                      alt="Card image cap">
                 <h5 class="card-title">{{ information["pays"] }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{ information["devise"] }}</h6>
-                    <p class="card-text">PIB : {{ information["pib"] }}{% endfor %}{% for money in monnaie %}<br>Nom de
+                <p class="card-text">PIB : {{ information["pib"] }} $/habitant{% endfor %}{% for money in monnaie %}<br>
+                Nom de
                     la monnaie : {{ money["monnaie"] }}<br>Code iso de la monnaie : {{ money["monnaie_iso"] }}
                     </p>{% endfor %}
                 <a href="/info_country.html" class="card-link">Voir d'autres pays...</a>

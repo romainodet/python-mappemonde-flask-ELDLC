@@ -41,12 +41,18 @@ class Model:
     def getCompanies(self):
         return self.sqlQuery("""
         
-        select company.name as `company`, company.turnover as `CA`, country.name as `pays`, activity.activity_name as `domaine`
+        select country.iso as 'iso',company.name as `company`, company.turnover as `CA`, country.name as `pays`, activity.activity_name as `domaine`
         from company, country, company_country, activity
         where company.activity_id = activity.id and country.id = company_country.country_id and company.id = company_country.company_id
         order by country.name asc
         """)
 
+    def getCancer(self):
+        return self.sqlQuery("""
+        select country.iso as 'iso',country.name as `pays`, cancer.value as `nbr_cancer`, cancer.year as `stat_year`
+from country, cancer where country.id = cancer.country_id order by pays asc
+
+                """)
 
     # Execute an SQL query and returns the result
     def sqlQuery(self, q):
