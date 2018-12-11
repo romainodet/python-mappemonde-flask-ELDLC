@@ -13,5 +13,18 @@
                 <li>{{ money["monnaie_iso"] }}</li>
             {% endfor %}
         </ul>
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{% for information in info %}{{ information["pays"] }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ information["devise"] }}</h6>
+                    <p class="card-text">PIB : {{ information["pib"] }}{% endfor %}{% for money in monnaie %}<br>Nom de
+                    la monnaie : {{ money["monnaie"] }}<br>Code iso de la monnaie : {{ money["monnaie_iso"] }}
+                    </p>{% endfor %}
+                <a href="/info_country.html" class="card-link">Voir d'autres pays...</a>
+                <a href="{{ url_for('index') }}" class="card-link">Accueil</a>
+            </div>
+        </div>
+
     </div>
 {% endblock %}
