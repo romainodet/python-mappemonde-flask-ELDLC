@@ -80,9 +80,52 @@ from country, price_cinema where country.id = price_cinema.country_id order by p
         select country.name as `name`, country.id as 'id' from country
         """)
 
-    def getAll(self, id):
-        return self.sqlQuery(""" select * from country
-        """)
+    def getInfoOnlyCountryNew(self, id):
+        return self.sqlQuery("""
+        select country.iso, country.id , country.name as `pays`, country.motto
+      as `devise`,country.pib as `pib` from country WHERE country.id = '%s'
+      """%(id))
+
+    def getMonnaieNew(self, id):
+        return self.sqlQuery(""" 
+        select country.id ,currency.Monnaie as `monnaie`, currency.CodeISO
+                           as `monnaie_iso` , currency.id
+                           from country, currency WHERE country.currency_id = currency.id AND country.id = '%s'
+                           """%(id))
+
+    def getCompanyNew(self, id):
+        return self.sqlQuery("""
+        select country.iso as 'iso',company.name as `company`, company.turnover as `CA`, country.name as `pays`, activity.activity_name as `domaine`
+        from company, country, company_country, activity
+        where company.activity_id = activity.id and country.id = company_country.country_id and company.id = company_country.company_id
+        and country.id = '%s'
+        """%(id))
+
+    def getCancerNew(self, id):
+        return self.sqlQuery("""
+        select country.iso as 'iso',country.name as `pays`, cancer.value as `nbr_cancer`, cancer.year as `stat_year`
+from country, cancer where country.id = cancer.country_id and country.id = '%s'
+"""%(id))
+
+    def getAlcoholNew(self, id):
+        return self.sqlQuery("""
+        select country.iso as 'iso',country.name as `pays`,
+alcohol.amount as `alc`, alcohol.date as `stat_year`
+from country, alcohol where country.id = alcohol.country_id and country.id = '%s'
+"""%(id))
+
+    def getKidnapNew(self, id):
+        return self.sqlQuery("""
+        select country.iso as 'iso',country.name as `pays`,
+kidnap.Amount as `kidnap`, kidnap.Date as `stat_year`
+from country, kidnap where country.id = kidnap.Country and country.id = '%s'
+"""%(id))
+    def getCinemaNew(self, id):
+        return self.sqlQuery("""
+        select country.iso as 'iso',country.name as `pays`,
+price_cinema.Amount as `cinema`, price_cinema.Date as `stat_year`
+from country, price_cinema where country.id = price_cinema.country_id and country.id = '%s'
+"""%(id))
     # Execute an SQL query and returns the result
     def sqlQuery(self, q):
         res = self.cur.execute(q)
