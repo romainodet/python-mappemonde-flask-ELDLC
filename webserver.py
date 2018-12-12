@@ -26,7 +26,7 @@ def info_country():
         return render_template('info_country.html', countries=countries)
 
 # Show single artist
-@app.route('/onlyCountry/<id>/')
+@app.route('/info_country/<id>/')
 def onlyCountry(id):
     # This is needed to use the query defined in the model.py module
     with Model() as model:
@@ -85,6 +85,16 @@ def info_cinema():
         return render_template('cinema.html', cinema=cinema)
 # new routes should be defined here
 
+@app.route('/indexnew/')
+def info_new_index():
+    # This is needed to use the query defined in the model.py module
+    with Model() as model:
+        # Get the artists as a list of dictionaries
+        country = model.getCountryNew()
+        return render_template('indexbis.html', country=country)
+
+
+# new routes should be defined here
 
 # main application
 if __name__ == '__main__':
