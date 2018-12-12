@@ -78,7 +78,7 @@ from country, price_cinema where country.id = price_cinema.country_id order by p
     # pour la page d'accueil
     def getCountryNew(self):
         return self.sqlQuery("""
-        select country.name as `name`, country.id as 'id' from country 
+        select country.name as `name`, country.id as 'id' from country ORDER BY name asc
         """)
 
     def getInfoOnlyCountryNew(self, id):
