@@ -56,6 +56,33 @@ def info_cancer():
         return render_template('cancer.html', cancer=cancer)
 
 
+# Show artists (simple case)
+@app.route('/alcool/')
+def info_alcool():
+    # This is needed to use the query defined in the model.py module
+    with Model() as model:
+        # Get the artists as a list of dictionaries
+        alcool = model.getAlcool()
+        return render_template('alchool.html', alcool=alcool)
+
+
+# Show artists (simple case)
+@app.route('/kidnap/')
+def info_kidnap():
+    # This is needed to use the query defined in the model.py module
+    with Model() as model:
+        # Get the artists as a list of dictionaries
+        kidnap = model.getKidnap()
+        return render_template('kidnap.html', kidnap=kidnap)
+
+
+@app.route('/cinema/')
+def info_cinema():
+    # This is needed to use the query defined in the model.py module
+    with Model() as model:
+        # Get the artists as a list of dictionaries
+        cinema = model.getCinema()
+        return render_template('cinema.html', cinema=cinema)
 # new routes should be defined here
 
 
