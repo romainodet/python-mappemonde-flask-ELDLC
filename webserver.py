@@ -94,9 +94,24 @@ def All_Countries():
     with Model() as model:
         # Get the artists as a list of dictionaries
         id = request.args.get('id')
-        print(id)
 
-        return render_template('display_country.html', )
+        getInfoOnlyCountryNew = model.getInfoOnlyCountryNew(id)
+
+        getMonnaieNew = model.getMonnaieNew(id)
+
+        getCompanyNew = model.getCompanyNew(id)
+
+        getCancerNew = model.getCancerNew(id)
+
+        getAlcoholNew = model.getAlcoholNew(id)
+
+        getKidnapNew = model.getKidnapNew(id)
+
+        getCinemaNew = model.getCinemaNew(id)
+
+        return render_template('display_country.html', country=getInfoOnlyCountryNew, monnaie=getMonnaieNew,
+                               company=getCompanyNew, cancer=getCancerNew, alcool=getAlcoholNew,
+                               kidnap=getKidnapNew, cinema=getCinemaNew)
 
 # new routes should be defined here
 

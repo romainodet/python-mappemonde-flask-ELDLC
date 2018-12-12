@@ -75,9 +75,10 @@ price_cinema.Amount as `cinema`, price_cinema.Date as `stat_year`
 from country, price_cinema where country.id = price_cinema.country_id order by pays asc
         """)
 
+    # pour la page d'accueil
     def getCountryNew(self):
         return self.sqlQuery("""
-        select country.name as `name`, country.id as 'id' from country
+        select country.name as `name`, country.id as 'id' from country 
         """)
 
     def getInfoOnlyCountryNew(self, id):

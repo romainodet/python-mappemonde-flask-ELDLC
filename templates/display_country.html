@@ -1,7 +1,42 @@
 {% extends "layout.html" %}
 {% block body %}
 
+    <p>
+        {% for country in country %}
+            <b>{{ country["pays"] }}<br></b>
+            Devise : {{ country["devise"] }}<br>
+            PIB : {{ country["pib"] }} € /habitant<br>
+        {% endfor %}
 
+        {% for monnaie in monnaie %}
+            Monnaie : {{ monnaie["monnaie"] }},
+            {{ monnaie["monnaie_iso"] }}<br>
+        {% endfor %}
+        <br><br>
+        {% for a in company %}
+
+            <b>{{ a["company"] }}</b><br>
+            CA : {{ a["CA"] }}<br>
+            Domaine d'activité : {{ a["domaine"] }}
+            <br><br>
+        {% endfor %}
+        <br><br>
+        {% for cancer in cancer %}
+            Nombre de mort du cancer : {{ cancer["nbr_cancer"] }}<br>
+        {% endfor %}
+        <br><br>
+        {% for alcool in  alcool %}
+            Nombre de litre d'alcool consommé par habitant par an : {{ alcool["alc"] }}<br>
+        {% endfor %}
+        <br><br>
+        {% for kidnap in kidnap %}
+            Nombre de kidnapping par an : {{ kidnap["kidnap"] }}<br>
+        {% endfor %}
+        <br><br>
+        {% for cinema in cinema %}
+            Prix d'une place de cinéma : {{ cinema["cinema"] }}<br>
+        {% endfor %}
+    </p>
 
 
 
