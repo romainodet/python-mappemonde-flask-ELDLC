@@ -62,7 +62,7 @@ def info_alcool():
     # This is needed to use the query defined in the model.py module
     with Model() as model:
         # Get the artists as a list of dictionaries
-        alcool = model.getAlcool()
+        alcool = model.getAlcohol()
         return render_template('alchool.html', alcool=alcool)
 
 

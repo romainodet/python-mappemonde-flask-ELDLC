@@ -11,7 +11,7 @@
                 <th>Litre d'alcool consommé par personne</th>
                 <th>Date de la statistique</th>
             </tr>
-            {% for a in cancer %}
+            {% for a in alcool %}
                 <tr>
                     <td>{{ a["pays"] }}</td>
                     <td><img src="https://www.geonames.org/flags/x/{{ a["iso"].lower() }}.gif" height="10px"></td>
