@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <h2 class="sub-header">Cinema</h2>
+    <div class="table-responsive">
+
+        <table class="table table-striped">
+            <tr>
+                <th>Pays</th>
+                <th>Drapeau</th>
+                <th>Nombre de kidnapping</th>
+                <th>Date de la statistique</th>
+            </tr>
+            {% for a in cancer %}
+                <tr>
+                    <td>{{ a["pays"] }}</td>
+                    <td><img src="https://www.geonames.org/flags/x/{{ a["iso"].lower() }}.gif" height="10px"></td>
+                    <td>{{ a["kidnap"] }}</td>
+                    <td>{{ a["stat_year"] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}
