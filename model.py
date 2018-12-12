@@ -50,10 +50,30 @@ class Model:
     def getCancer(self):
         return self.sqlQuery("""
         select country.iso as 'iso',country.name as `pays`, cancer.value as `nbr_cancer`, cancer.year as `stat_year`
-from country, cancer where country.id = cancer.country_id order by pays asc
+from country, cancer where country.id = cancer.country_id order by nbr_cancer desc
 
                 """)
 
+    def getAlcohol(self):
+        return self.sqlQuery("""
+        select country.iso as 'iso',country.name as `pays`,
+alcohol.amount as `alc`, alcohol.date as `stat_year`
+from country, alcohol where country.id = alcohol.country_id order by pays asc
+""")
+
+    def getKidnap(self):
+        return self.sqlQuery("""
+        select country.iso as 'iso',country.name as `pays`,
+kidnap.Amount as `kidnap`, kidnap.Date as `stat_year`
+from country, kidnap where country.id = kidnap.Country order by kidnap desc
+""")
+
+    def getCinema(self):
+        return self.sqlQuery("""
+        select country.iso as 'iso',country.name as `pays`,
+price_cinema.Amount as `cinema`, price_cinema.Date as `stat_year`
+from country, price_cinema where country.id = price_cinema.country_id order by pays asc
+        """)
     # Execute an SQL query and returns the result
     def sqlQuery(self, q):
         res = self.cur.execute(q)
