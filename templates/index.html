@@ -7,7 +7,26 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Hoelzelnaturalearth.png/1280px-Hoelzelnaturalearth.png"
                      height="150px" style="margin-bottom:20px; max-height: :150px;    display: block;
     margin-left: auto;
-    margin-right: auto; " class="center-block"></div>
+    margin-right: auto; " class="center-block">
+
+            </div>
+
+            <div class="col-sm-12 center-block" style="margin-bottom:5em;">
+                <form method="get" action="../display_country.html">
+                    <div class="form-group">
+                        <label for="countries">Séléctionnez un pays :</label>
+                        <select class="form-control form-control-lg" name="id" id="countries">
+                            {% for a in country %}
+                                <option value="{{ a["id"] }}">{{ a["name"] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-control-lg"><i class="fas fa-plane-departure"></i>
+                        Voyageons...
+                    </button>
+                </form>
+            </div>
+
             <div class="col-sm-4">
                 <div class="card text-center" style="width: 18rem;height:180px;">
                     <div class="card-body">
@@ -40,6 +59,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="col-sm-4" style="margin-bottom: 10px;">
                 <div class="card text-center" style="width: 18rem;height:180px;">
                     <div class="card-body">

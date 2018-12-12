@@ -12,8 +12,9 @@ app = Flask(__name__)
 @app.route('/accueil/')  # / is the URL
 def index():
     # These log messages are just to show you how you can use them to debug your application
-
-    return render_template('index.html')
+    with Model() as model:
+        country = model.getCountryNew()
+    return render_template('index.html', country=country)
 
 
 # Show artists (simple case)
@@ -85,14 +86,17 @@ def info_cinema():
         return render_template('cinema.html', cinema=cinema)
 # new routes should be defined here
 
-@app.route('/indexnew/')
-def info_new_index():
+
+# Show single artist
+@app.route('/display_country.html')
+def All_Countries():
     # This is needed to use the query defined in the model.py module
     with Model() as model:
         # Get the artists as a list of dictionaries
-        country = model.getCountryNew()
-        return render_template('indexbis.html', country=country)
+        id = request.args.get('id')
+        print(id)
 
+        return render_template('display_country.html', )
 
 # new routes should be defined here
 

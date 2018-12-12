@@ -79,6 +79,10 @@ from country, price_cinema where country.id = price_cinema.country_id order by p
         return self.sqlQuery("""
         select country.name as `name`, country.id as 'id' from country
         """)
+
+    def getAll(self, id):
+        return self.sqlQuery(""" select * from country
+        """)
     # Execute an SQL query and returns the result
     def sqlQuery(self, q):
         res = self.cur.execute(q)
