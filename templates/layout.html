@@ -66,6 +66,18 @@
                 <a class="nav-link" href="/cancer/"><i class="fas fa-skull-crossbones"></i> Mort par cancer
                     {%- if request.path == "/cancer/" %}<span class="sr-only">(current)</span>{% endif %}</a>
             </li>
+            <li class="nav-item {%- if request.path == "/alcool/" %} active{% endif %}">
+                <a class="nav-link" href="/cinema/"><i class="fas fa-beer"></i> Nombre de litre d'alcool
+                    {%- if request.path == "/alcool/" %}<span class="sr-only">(current)</span>{% endif %}</a>
+            </li>
+            <li class="nav-item {%- if request.path == "/cinema/" %} active{% endif %}">
+                <a class="nav-link" href="/cinema/"><i class="fas fa-theater-masks"></i> Cinéma
+                    {%- if request.path == "/cinema/" %}<span class="sr-only">(current)</span>{% endif %}</a>
+            </li>
+            <li class="nav-item {%- if request.path == "/kidnap/" %} active{% endif %}">
+                <a class="nav-link" href="/kidnap/"><i class="fas fa-baby-carriage"></i> Kidnapping
+                    {%- if request.path == "/kidnap/" %}<span class="sr-only">(current)</span>{% endif %}</a>
+            </li>
 
 
             <!--
