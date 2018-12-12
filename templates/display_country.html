@@ -1,42 +1,87 @@
 {% extends "layout.html" %}
 {% block body %}
 
-    <p>
-        {% for country in country %}
-            <b>{{ country["pays"] }}<br></b>
-            Devise : {{ country["devise"] }}<br>
-            PIB : {{ country["pib"] }} € /habitant<br>
-        {% endfor %}
+    <div class="container center-block">
+        <div class="row center-block">
 
-        {% for monnaie in monnaie %}
-            Monnaie : {{ monnaie["monnaie"] }},
-            {{ monnaie["monnaie_iso"] }}<br>
-        {% endfor %}
-        <br><br>
-        {% for a in company %}
+            {% for country in country %}
+                <div class="row center-block">
+                <div class="col-sm-6"><img
+                        src="https://www.geonames.org/flags/x/{{ country["iso"].lower() }}.gif"
+                        height="150px"></div>
+                <div class="col-sm-6"><h1 class="display-3">{{ country["pays"] }}</h1>
+                {% if country["pib"] != None %}<h5 class="text-secondary font-italic">{{ country["devise"] }}</h5>
+                {% endif %}
+                {% if country["pib"] != None %}<p class="text-left">PIB : <strong>{{ country["pib"] }}</strong> $
+                    /habitant<br>{% endif %}
+            {% endfor %}
+            {% for monnaie in monnaie %}
+                Monnaie : <strong>{{ monnaie["monnaie"] }},
+                {{ monnaie["monnaie_iso"] }}</strong></p>
+            {% endfor %}
+            </div>
+            {% if company != [] %}
+                <h4>3 plus grosses entreprises de {% for country in country %}{{ country["pays"] }}{% endfor %}</h4>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tr>
+                            <th scope="col">Nom de l'entreprise</th>
+                            <th scope="col">Chiffre d'affaire</th>
+                            <th scope="col">Activité</th>
+                        </tr>
+                        {% for a in company %}
+                            <tr>
+                                <td><strong>{{ a["company"] }}</strong></td>
+                                <td>{{ a["CA"] }}</td>
+                                <td>{{ a["domaine"] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            {% endif %}
+            {% if cancer != [] and alcool != [] and kidnap != [] and cinema != [] %}
+                <h4>Les statistiques inutiles</h4>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tr>
+                            <th scope="col">Description</th>
+                            <th scope="col">Valeurs</th>
+                        </tr>
+                        <tr>
+                            {% for cancer in cancer %}
+                                <td><strong>Nombre de mort du cancer</strong></td>
+                                <td>{{ cancer["nbr_cancer"] }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for alcool in  alcool %}
+                                <td><strong>Nombre de litre d'alcool consommé par habitant par an</strong></td>
+                                <td>{{ alcool["alc"] }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for kidnap in kidnap %}
+                                <td><strong>Nombre de kidnapping par an</strong></td>
+                                <td>{{ kidnap["kidnap"] }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for cinema in cinema %}
+                                <td><strong>Prix d'une place de cinéma</strong></td>
+                                <td>{{ cinema["cinema"] }}</td>
+                            {% endfor %}
+                        </tr>
+                    </table>
+                </div>
+            {% endif %}
 
-            <b>{{ a["company"] }}</b><br>
-            CA : {{ a["CA"] }}<br>
-            Domaine d'activité : {{ a["domaine"] }}
-            <br><br>
-        {% endfor %}
-        <br><br>
-        {% for cancer in cancer %}
-            Nombre de mort du cancer : {{ cancer["nbr_cancer"] }}<br>
-        {% endfor %}
-        <br><br>
-        {% for alcool in  alcool %}
-            Nombre de litre d'alcool consommé par habitant par an : {{ alcool["alc"] }}<br>
-        {% endfor %}
-        <br><br>
-        {% for kidnap in kidnap %}
-            Nombre de kidnapping par an : {{ kidnap["kidnap"] }}<br>
-        {% endfor %}
-        <br><br>
-        {% for cinema in cinema %}
-            Prix d'une place de cinéma : {{ cinema["cinema"] }}<br>
-        {% endfor %}
-    </p>
+
+            </div>
+
+
+        </div>
+    </div>
+
 
 
 

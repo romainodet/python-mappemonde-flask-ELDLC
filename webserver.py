@@ -108,7 +108,7 @@ def All_Countries():
         getKidnapNew = model.getKidnapNew(id)
 
         getCinemaNew = model.getCinemaNew(id)
-
+        print(getCompanyNew)
         return render_template('display_country.html', country=getInfoOnlyCountryNew, monnaie=getMonnaieNew,
                                company=getCompanyNew, cancer=getCancerNew, alcool=getAlcoholNew,
                                kidnap=getKidnapNew, cinema=getCinemaNew)
