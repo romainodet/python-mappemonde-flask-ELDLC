@@ -1,6 +1,7 @@
 from model import Model
 from flask import *
 
+
 # Create flask application
 app = Flask(__name__)
 
@@ -133,6 +134,13 @@ def All_Countries_Map():
                                company=getCompanyNew, cancer=getCancerNew, alcool=getAlcoholNew,
                                kidnap=getKidnapNew, cinema=getCinemaNew)  # afficher la page
 
+
+from datetime import datetime
+
+
+@app.context_processor
+def inject_now():
+    return {'now': datetime.utcnow()}
 
 # main application
 if __name__ == '__main__':

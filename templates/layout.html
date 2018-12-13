@@ -19,7 +19,7 @@
     <meta name="msapplication-config" content="../../../static/images/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
-    <title>La map Monde</title>
+    <title>Mappemonde</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -38,7 +38,28 @@
     .starter-template {
         padding: 3rem 1.5rem;
         text-align: center;
-    }</style>
+    }
+
+    html {
+        position: relative;
+        min-height: 100%;
+    }
+
+    body {
+        /* Margin bottom by footer height */
+        margin-bottom: 60px;
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        height: 60px;
+        line-height: 60px; /* Vertically center the text there */
+        background-color: #f5f5f5;
+    }
+    </style>
 
     <script src="../../../static/js/jquery-jvectormap-2.0.3.min.js"></script>
     <script src="../../../static/js/jquery-jvectormap-world-mill.js"></script>
@@ -50,7 +71,7 @@
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="{{ url_for('index') }}"><img
-            src="../../../static/images/favicon/favicon-32x32.png" height="35px"> MapMonde.com</a>
+            src="../../../static/images/favicon/favicon-32x32.png" height="35px"> Mappemonde</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -115,7 +136,17 @@
     {% endblock %}
 
 </main><!-- /.container -->
+<footer class="footer bg-dark">
+    <div class="container">
+        <span class="text-muted" style="color:white!important">Crée avec Flask, Bootstrap et beaucoup d' <i
+                style="color:red" class="fas fa-heart"></i> par Jean-Marie, Romain et Ruben</span>
+        <span class="text-muted pull-right" style="color:white!important">   |    &copy; <a
+                style="color:darkgrey!important" href="https://lecole-ldlc.com"
+                target="_blank">L'école LDLC</a> {{ now.year }}</span>
+        <span class="text-muted" style="color:darkgrey!important">Version 3.0.0 - Dernière édition 14/12 0:20AM</span>
 
+    </div>
+</footer>
 <!-- Bootstrap core JavaScript
    ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
