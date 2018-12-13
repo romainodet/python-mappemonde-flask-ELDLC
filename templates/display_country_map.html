@@ -13,9 +13,9 @@
 
             {% for country in country %}
                 <div class="row center-block">
-                <div class="col-sm-6"><img
+                <div class="col-sm-6">{% if country["iso"] != None %}<img
                         src="https://www.geonames.org/flags/x/{{ country["iso"].lower() }}.gif"
-                        height="150px"></div>
+                        height="150px">{% endif %}</div>
                 <div class="col-sm-6"><h1 class="display-3">{{ country["pays"] }}</h1>
                 {% if country["pib"] != None %}<h5 class="text-secondary font-italic">{{ country["devise"] }}</h5>
                 {% endif %}

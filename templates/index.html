@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 {% block body %}
+    <!-- TODO JUMBOTRON BOOTRSTRAP-->
+
     <div class="container">
         <div class="row">
             <div class="col-sm-12"><h1 style="text-align:center;">Bienvenue sur
@@ -9,6 +11,21 @@
     margin-left: auto;
     margin-right: auto; " class="center-block">
 
+                <div style="width: 708px; height: 400px; margin-left:auto;margin-right:auto;margin-bottom: auto;"
+                     id="map"></div>
+                <script>
+                    $(function () {
+                        $('#map').vectorMap({
+
+                            map: 'world_mill',
+                            backgroundColor: '#006994',
+
+                            onRegionClick: function (event, code) {
+                                window.location.href = "../display_country_map.html?id=" + code
+                            }
+                        });
+                    });
+                </script>
             </div>
 
             <div class="col-sm-12 center-block" style="margin-bottom:5em;">
@@ -21,9 +38,12 @@
                             {% endfor %}
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary form-control-lg"><i class="fas fa-plane-departure"></i>
-                        Voyageons...
-                    </button>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary form-control-lg text-center"
+                                style="margin-left:auto;margin-right:auto;"><i class="fas fa-plane-departure"></i>
+                            Voyageons...
+                        </button>
+                    </div>
                 </form>
             </div>
 
@@ -33,7 +53,7 @@
                         <h5 class="card-title">Informations sur des pays</h5>
                         <p class="card-text">Découvrez en plus sur les pays...</p>
                         <a href="/info_country/" class="btn01 btn btn-primary"
-                           style="background-color:#00AFE9!important;"><i class="fas fa-plane-departure"></i> Allons-y!</a>
+                           style=""><i class="fas fa-plane-departure"></i> Allons-y!</a>
                     </div>
                 </div>
             </div>
@@ -43,7 +63,7 @@
                         <h5 class="card-title">Les entreprises</h5>
                         <p class="card-text">Les 3 plus grosses entreprises par pays</p>
                         <a href="/companies/" class="btn01 btn btn-primary"
-                           style="background-color:#00AFE9!important;"><i class="fas fa-building"></i> Prenons de la
+                           style=""><i class="fas fa-building"></i> Prenons de la
                             hauteur</a>
                     </div>
                 </div>
@@ -54,7 +74,7 @@
                         <h5 class="card-title">Cancer</h5>
                         <p class="card-text">Nombre de mort par cancer</p>
                         <a href="/cancer/" class="btn01 btn btn-primary"
-                           style="background-color:#00AFE9!important;"><i class="fas fa-skull-crossbones"></i> Allons
+                           style=""><i class="fas fa-skull-crossbones"></i> Allons
                             voir la mort</a>
                     </div>
                 </div>
@@ -66,7 +86,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Alcool :</h5>
                         <p class="card-text">Nombre de litre consommé par an par personne</p>
-                        <a href="/alcool/" class="btn01 btn btn-primary" style="background-color:#00AFE9!important;"><i
+                        <a href="/alcool/" class="btn01 btn btn-primary" style=""><i
                                 class="fas fa-beer"></i> Buvons !</a>
                     </div>
                 </div>
@@ -76,7 +96,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Cinéma :</h5>
                         <p class="card-text">Prix d'une place de cinéma</p>
-                        <a href="/cinema/" class="btn01 btn btn-primary" style="background-color:#00AFE9!important;"><i
+                        <a href="/cinema/" class="btn01 btn btn-primary" style=""><i
                                 class="fas fa-theater-masks"></i> Regardons !</a>
                     </div>
                 </div>
@@ -87,7 +107,7 @@
                         <h5 class="card-title">Kidnapping</h5>
                         <p class="card-text">Nombre de kidnapping</p>
                         <a href="/kidnap/" class="btn01 btn btn-primary"
-                           style="background-color:#00AFE9!important;"><i class="fas fa-baby-carriage"></i> Find Maelys</a>
+                           style=""><i class="fas fa-baby-carriage"></i> Find Maelys</a>
                     </div>
                 </div>
             </div>

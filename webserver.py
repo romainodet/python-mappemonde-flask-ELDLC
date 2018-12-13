@@ -108,12 +108,38 @@ def All_Countries():
         getKidnapNew = model.getKidnapNew(id)
 
         getCinemaNew = model.getCinemaNew(id)
+
         print(getCompanyNew)
         return render_template('display_country.html', country=getInfoOnlyCountryNew, monnaie=getMonnaieNew,
                                company=getCompanyNew, cancer=getCancerNew, alcool=getAlcoholNew,
                                kidnap=getKidnapNew, cinema=getCinemaNew)
 
 # new routes should be defined here
+
+# Show single artist
+@app.route('/display_country_map.html')
+def All_Countries_Map():
+    # This is needed to use the query defined in the model.py module
+    with Model() as model:
+        id = request.args.get('id')
+
+        getInfoOnlyCountryNew = model.getInfoOnlyCountryNew_map(id)
+
+        getMonnaieNew = model.getMonnaieNew_map(id)
+
+        getCompanyNew = model.getCompanyNew_map(id)
+
+        getCancerNew = model.getCancerNew_map(id)
+
+        getAlcoholNew = model.getAlcoholNew_map(id)
+
+        getKidnapNew = model.getKidnapNew_map(id)
+
+        getCinemaNew = model.getCinemaNew_map(id)
+
+        return render_template('display_country_map.html', country=getInfoOnlyCountryNew, monnaie=getMonnaieNew,
+                               company=getCompanyNew, cancer=getCancerNew, alcool=getAlcoholNew,
+                               kidnap=getKidnapNew, cinema=getCinemaNew)
 
 # main application
 if __name__ == '__main__':

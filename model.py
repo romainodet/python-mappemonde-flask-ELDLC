@@ -81,6 +81,11 @@ from country, price_cinema where country.id = price_cinema.country_id order by p
         select country.name as `name`, country.id as 'id' from country ORDER BY name asc
         """)
 
+    def getCountryMap(self, id):
+        return self.sqlQuery("""
+        select country.id from country where iso ='%s'""" % (id))
+
+
     def getInfoOnlyCountryNew(self, id):
         return self.sqlQuery("""
         select country.iso, country.id , country.name as `pays`, country.motto
@@ -127,7 +132,60 @@ from country, kidnap where country.id = kidnap.Country and country.id = '%s'
 price_cinema.Amount as `cinema`, price_cinema.Date as `stat_year`
 from country, price_cinema where country.id = price_cinema.country_id and country.id = '%s'
 """%(id))
+
+    # FOR THE MAP
+    def getInfoOnlyCountryNew_map(self, id):
+        return self.sqlQueryS("""
+        select country.iso, country.id , country.name as `pays`, country.motto
+      as `devise`,country.pib as `pib` from country WHERE country.iso = '%s'
+      """ % (id))
+
+    def getMonnaieNew_map(self, id):
+        return self.sqlQueryS(""" 
+        select country.id ,currency.Monnaie as `monnaie`, currency.CodeISO
+                           as `monnaie_iso` , currency.id
+                           from country, currency WHERE country.currency_id = currency.id AND country.iso = '%s'
+                           """ % (id))
+
+    def getCompanyNew_map(self, id):
+        return self.sqlQueryS("""
+        select country.iso as 'iso',company.name as `company`, company.turnover as `CA`, country.name as `pays`, activity.activity_name as `domaine`
+        from company, country, company_country, activity
+        where company.activity_id = activity.id and country.id = company_country.country_id and company.id = company_country.company_id
+        and country.iso = '%s'
+        """ % (id))
+
+    def getCancerNew_map(self, id):
+        return self.sqlQueryS("""
+        select country.iso as 'iso',country.name as `pays`, cancer.value as `nbr_cancer`, cancer.year as `stat_year`
+from country, cancer where country.id = cancer.country_id and country.iso = '%s'
+""" % (id))
+
+    def getAlcoholNew_map(self, id):
+        return self.sqlQueryS("""
+        select country.iso as 'iso',country.name as `pays`,
+alcohol.amount as `alc`, alcohol.date as `stat_year`
+from country, alcohol where country.id = alcohol.country_id and country.iso = '%s'
+""" % (id))
+
+    def getKidnapNew_map(self, id):
+        return self.sqlQueryS("""
+        select country.iso as 'iso',country.name as `pays`,
+kidnap.Amount as `kidnap`, kidnap.Date as `stat_year`
+from country, kidnap where country.id = kidnap.Country and country.iso = '%s'
+""" % (id))
+
+    def getCinemaNew_map(self, id):
+        return self.sqlQueryS("""
+        select country.iso as 'iso',country.name as `pays`,
+price_cinema.Amount as `cinema`, price_cinema.Date as `stat_year`
+from country, price_cinema where country.id = price_cinema.country_id and country.iso = '%s'
+""" % (id))
     # Execute an SQL query and returns the result
     def sqlQuery(self, q):
+        res = self.cur.execute(q)
+        return self.cur.fetchall()
+
+    def sqlQueryS(self, q):
         res = self.cur.execute(q)
         return self.cur.fetchall()
