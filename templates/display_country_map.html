@@ -84,7 +84,44 @@
 
 
             </div>
+            <div class="col-sm-12 center-block" style="margin-bottom:2em;">
+                <div style="width: auto; height: 500px; margin-left:auto;margin-right:auto;margin-bottom: auto;"
+                     id="map"></div>
+                <script>
 
+                    var mapData = {"{% for country in country %}{{ country['iso'] }}{% endfor %}": 1000,};
+                    $(function () {
+                        $('#map').vectorMap({
+
+                            map: 'world_mill',
+                            backgroundColor: '#006994',
+
+                            onRegionClick: function (event, code) {
+                                window.location.href = "../display_country_map.html?id=" + code
+                            },
+                            regionStyle: {
+                                initial: {
+                                    fill: '#B8E186'
+                                },
+                                selected: {
+                                    fill: '#F4A582'
+                                }
+                            },
+                            series: {
+                                regions: [{
+                                    values: mapData,
+                                    scale: ['#ff0000'],
+                                    normalizeFunction: 'polynomial'
+                                }]
+                            },
+
+
+                        });
+
+
+                    });
+                </script>
+            </div>
 
         </div>
     </div>

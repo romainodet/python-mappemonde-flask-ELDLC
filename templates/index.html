@@ -10,25 +10,9 @@
                      height="150px" style="margin-bottom:20px; max-height: :150px;    display: block;
     margin-left: auto;
     margin-right: auto; " class="center-block">
-
-                <div style="width: 708px; height: 400px; margin-left:auto;margin-right:auto;margin-bottom: auto;"
-                     id="map"></div>
-                <script>
-                    $(function () {
-                        $('#map').vectorMap({
-
-                            map: 'world_mill',
-                            backgroundColor: '#006994',
-
-                            onRegionClick: function (event, code) {
-                                window.location.href = "../display_country_map.html?id=" + code
-                            }
-                        });
-                    });
-                </script>
             </div>
 
-            <div class="col-sm-12 center-block" style="margin-bottom:5em;">
+            <div class="col-sm-12 center-block" style="margin-bottom:1em;">
                 <form method="get" action="../display_country.html">
                     <div class="form-group">
                         <label for="countries">Séléctionnez un pays :</label>
@@ -47,8 +31,26 @@
                 </form>
             </div>
 
-            <div class="col-sm-4">
-                <div class="card text-center" style="width: 18rem;height:180px;">
+            <div class="col-sm-12 center-block" style="margin-bottom:2em;">
+                <div style="width: auto; height: 500px; margin-left:auto;margin-right:auto;margin-bottom: auto;"
+                     id="map"></div>
+                <script>
+                    $(function () {
+                        $('#map').vectorMap({
+
+                            map: 'world_mill',
+                            backgroundColor: '#006994',
+
+                            onRegionClick: function (event, code) {
+                                window.location.href = "../display_country_map.html?id=" + code
+                            }
+                        });
+                    });
+                </script>
+            </div>
+
+            <div class="col-sm-4" style="margin-bottom: 10px; margin-left:auto;margin-right:auto;">
+                <div class="card text-center" style="width: 18rem; height:180px; margin-left:auto;margin-right:auto;">
                     <div class="card-body">
                         <h5 class="card-title">Informations sur des pays</h5>
                         <p class="card-text">Découvrez en plus sur les pays...</p>
@@ -57,8 +59,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4" style="margin-bottom: 10px;">
-                <div class="card text-center" style="width: 18rem; height:180px;">
+            <div class="col-sm-4" style="margin-bottom: 10px; margin-left:auto;margin-right:auto;">
+                <div class="card text-center" style="width: 18rem; height:180px; margin-left:auto;margin-right:auto;">
                     <div class="card-body">
                         <h5 class="card-title">Les entreprises</h5>
                         <p class="card-text">Les 3 plus grosses entreprises par pays</p>
@@ -68,8 +70,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4" style="margin-bottom: 10px;">
-                <div class="card text-center" style="width: 18rem;height:180px;">
+            <div class="col-sm-4" style="margin-bottom: 10px; margin-left:auto;margin-right:auto;">
+                <div class="card text-center" style="width: 18rem; height:180px; margin-left:auto;margin-right:auto;">
                     <div class="card-body">
                         <h5 class="card-title">Cancer</h5>
                         <p class="card-text">Nombre de mort par cancer</p>
@@ -81,8 +83,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4" style="margin-bottom: 10px;">
-                <div class="card text-center" style="width: 18rem;height:180px;">
+            <div class="col-sm-4" style="margin-bottom: 10px; margin-left:auto;margin-right:auto;">
+                <div class="card text-center" style="width: 18rem; height:180px; margin-left:auto;margin-right:auto;">
                     <div class="card-body">
                         <h5 class="card-title">Alcool :</h5>
                         <p class="card-text">Nombre de litre consommé par an par personne</p>
@@ -91,8 +93,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4" style="margin-bottom: 10px;">
-                <div class="card text-center" style="width: 18rem;height:180px;">
+            <div class="col-sm-4" style="margin-bottom: 10px; margin-left:auto;margin-right:auto;">
+                <div class="card text-center" style="width: 18rem; height:180px; margin-left:auto;margin-right:auto;">
                     <div class="card-body">
                         <h5 class="card-title">Cinéma :</h5>
                         <p class="card-text">Prix d'une place de cinéma</p>
@@ -101,8 +103,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4" style="margin-bottom: 10px;">
-                <div class="card text-center" style="width: 18rem;height:180px;">
+            <div class="col-sm-4" style="margin-bottom: 10px; margin-left:auto;margin-right:auto;">
+                <div class="card text-center" style="width: 18rem; height:180px; margin-left:auto;margin-right:auto;">
                     <div class="card-body">
                         <h5 class="card-title">Kidnapping</h5>
                         <p class="card-text">Nombre de kidnapping</p>
