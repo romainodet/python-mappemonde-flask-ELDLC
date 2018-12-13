@@ -40,6 +40,14 @@
 
                             map: 'world_mill',
                             backgroundColor: '#006994',
+                            regionStyle: {
+                                initial: {
+                                    fill: '#ffffff'
+                                },
+                                selected: {
+                                    fill: '#F4A582'
+                                }
+                            },
 
                             onRegionClick: function (event, code) {
                                 window.location.href = "../display_country_map.html?id=" + code

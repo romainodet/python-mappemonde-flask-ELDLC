@@ -7,90 +7,83 @@ app = Flask(__name__)
 
 # Define all routes (URL)
 
+# defintion de la page d'accueil
 @app.route('/')  # / is the URL
 @app.route('/index.html')  # / is the URL
 @app.route('/accueil/')  # / is the URL
 def index():
-    # These log messages are just to show you how you can use them to debug your application
     with Model() as model:
-        country = model.getCountryNew()
-    return render_template('index.html', country=country)
+        country = model.getCountryNew()  # appel de la reqeute sql
+    return render_template('index.html', country=country)  # afficher la page index html
 
 
-# Show artists (simple case)
+# afficher la page qui liste tout les pays
 @app.route('/info_country/')
 def info_country():
-    # This is needed to use the query defined in the model.py module
     with Model() as model:
         # Get the artists as a list of dictionaries
-        countries = model.getInfoCountry()
-        return render_template('info_country.html', countries=countries)
+        countries = model.getInfoCountry()  # sql pour obtenir tout les pays
+        return render_template('info_country.html', countries=countries)  # afficher la page
 
-# Show single artist
+
+# afficher un pays en particulier
 @app.route('/info_country/<id>/')
 def onlyCountry(id):
-    # This is needed to use the query defined in the model.py module
     with Model() as model:
-        # Get the artists as a list of dictionaries
+        # appel sql des infos sur le pays et les infos sur la monnaie
         info = model.getInfoOnlyCountry(id)
         monnaie = model.getMonnaie(id)
-        return render_template('country_one.html', info=info , monnaie=monnaie)
+        return render_template('country_one.html', info=info, monnaie=monnaie)  # afficher la page
 
 
-# Show artists (simple case)
+# Afficher la liste des entreprises pour tous les pays
 @app.route('/companies/')
 def info_companies():
-    # This is needed to use the query defined in the model.py module
     with Model() as model:
-        # Get the artists as a list of dictionaries
+        # sql pour obtenir toutes les entreprises
         companies = model.getCompanies()
-        return render_template('companies.html', companies=companies)
+        return render_template('companies.html', companies=companies)  # afficher la page
 
 
-# Show artists (simple case)
+# afficher la liste des pays avec le nombre de cancers
 @app.route('/cancer/')
 def info_cancer():
-    # This is needed to use the query defined in the model.py module
     with Model() as model:
-        # Get the artists as a list of dictionaries
+        # SQL pour obtenir le ombre de cancer par pays
         cancer = model.getCancer()
-        return render_template('cancer.html', cancer=cancer)
+        return render_template('cancer.html', cancer=cancer)  # afficher la page
 
 
-# Show artists (simple case)
+# afficher la liste des pays avec le taux d'alcool
 @app.route('/alcool/')
 def info_alcool():
-    # This is needed to use the query defined in the model.py module
     with Model() as model:
-        # Get the artists as a list of dictionaries
+        # sQL pour obtenir le taux
         alcool = model.getAlcohol()
-        return render_template('alchool.html', alcool=alcool)
+        return render_template('alchool.html', alcool=alcool)  # afficher la page
 
 
-# Show artists (simple case)
+# affciher le nombre de kidnapping par pays
 @app.route('/kidnap/')
 def info_kidnap():
-    # This is needed to use the query defined in the model.py module
     with Model() as model:
-        # Get the artists as a list of dictionaries
+        # SQl pour obtenir le nombre de kidnapping
         kidnap = model.getKidnap()
-        return render_template('kidnap.html', kidnap=kidnap)
+        return render_template('kidnap.html', kidnap=kidnap)  # afficher la page
 
 
+# afficher le prix d'une place de cinéma par pays
 @app.route('/cinema/')
 def info_cinema():
-    # This is needed to use the query defined in the model.py module
     with Model() as model:
-        # Get the artists as a list of dictionaries
+        # SQL pour obtenir la valeur
         cinema = model.getCinema()
-        return render_template('cinema.html', cinema=cinema)
-# new routes should be defined here
+        return render_template('cinema.html', cinema=cinema)  # afficher la page
 
 
-# Show single artist
+# display a country when you use the slider
 @app.route('/display_country.html')
 def All_Countries():
-    # This is needed to use the query defined in the model.py module
     with Model() as model:
         # Get the artists as a list of dictionaries
         id = request.args.get('id')
@@ -109,17 +102,16 @@ def All_Countries():
 
         getCinemaNew = model.getCinemaNew(id)
 
-        print(getCompanyNew)
         return render_template('display_country.html', country=getInfoOnlyCountryNew, monnaie=getMonnaieNew,
                                company=getCompanyNew, cancer=getCancerNew, alcool=getAlcoholNew,
-                               kidnap=getKidnapNew, cinema=getCinemaNew)
+                               kidnap=getKidnapNew, cinema=getCinemaNew)  # afficher la page
+
 
 # new routes should be defined here
 
-# Show single artist
+# show a country when click on the map
 @app.route('/display_country_map.html')
 def All_Countries_Map():
-    # This is needed to use the query defined in the model.py module
     with Model() as model:
         id = request.args.get('id')
 
@@ -139,7 +131,8 @@ def All_Countries_Map():
 
         return render_template('display_country_map.html', country=getInfoOnlyCountryNew, monnaie=getMonnaieNew,
                                company=getCompanyNew, cancer=getCancerNew, alcool=getAlcoholNew,
-                               kidnap=getKidnapNew, cinema=getCinemaNew)
+                               kidnap=getKidnapNew, cinema=getCinemaNew)  # afficher la page
+
 
 # main application
 if __name__ == '__main__':
